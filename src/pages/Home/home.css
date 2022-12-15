@@ -1,0 +1,109 @@
+h1{
+  text-align: center;
+  margin-top: 5%;
+  font-size: 50px;
+  color: rgb(4, 4, 73);
+}
+
+p{
+  text-align: center;
+}
+
+.home-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border: 5px solid red; */
+  width: 600px;
+  height: 500px;
+  background: rgb(18,36,91);
+background: linear-gradient(90deg, rgba(18,36,91,1) 0%, rgba(3,32,117,1) 35%, rgba(0,26,255,1) 98%);
+border-radius: 50px;
+}
+
+.home-container h1{
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.home-container span{
+  margin-bottom: 28px;
+
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 600px;
+}
+
+.form input{
+  margin-top: 3%;
+  border:0;
+  margin-bottom: 5px;
+  height: 55px;
+  border-radius: 4px;
+  padding: 0 8px;
+  font-size: 20px;
+}
+
+.form button{
+  margin-top: 5%;
+  height: 36px;
+  border:0;
+  border-radius: 4px;
+  background: rgb(5,247,241);
+  background: linear-gradient(90deg, rgba(5,247,241,1) 0%, rgba(9,160,204,1) 35%, rgba(0,130,175,1) 98%);
+  color: #FFF;
+  font-size: 22px;
+}
+
+.form textarea{
+  margin-bottom: 12px;
+  border:0;
+  height: 90px;
+  resize: none;
+  border-radius: 4px;
+  padding: 8px;
+} 
+
+.button-link{
+  margin-top: 15%;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.teste{
+  /* border: 5px solid red; */
+  width: 600px;
+  height: 500px;
+}
+
+.teste2{
+  margin-top: 1%;
+  justify-content: center;
+  align-items: center;
+  /* border: 10px solid blue; */
+  display: flex;
+  flex-direction: row;
+  height: 80vh;
+  width: 100%;
+}
+
+.pombo{
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+@media (max-width: 600px)
+{
+  .teste{
+    display: none;
+  }
+  .pombo{
+    display: none;
+  }
+}
