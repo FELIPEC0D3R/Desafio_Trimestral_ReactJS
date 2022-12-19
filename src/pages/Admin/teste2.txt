@@ -1,0 +1,98 @@
+import { useState, useEffect } from 'react';
+import './admin.css'
+import lixo from '../images/lixo.png'
+
+import {addDoc, collection, onSnapshot, query, orderBy, where} from 'firebase/firestore'
+
+import {auth , db} from '../../firebaseConnection';
+import { signOut } from 'firebase/auth';
+// import { async } from '@firebase/util';
+
+
+export default function Admin(){
+  const [tarefaInput, setTarefaInput] = useState('');
+  const [user, setUser] = useState({});
+
+  const [tarefas, setTarefas] = useState([]);
+
+  useEffect(() => {
+    async function loadTarefas(){
+      const userDetail = localStorage.getItem("@detailUser")
+      setUser(JSON.parse(userDetail))
+
+      if(userDetail){
+        const data = JSON.parse(userDetail);
+
+        const tarefaRef = collection(db, "tarefas")
+        const VarQuery = query(tarefaRef, orderBy("created", "desc"), where("useruid", "==", data?.uid))
+        const unsub = onSnapshot(VarQuery, (snapshot) => {
+          let lista = [];
+
+          snapshot.forEach((doc) => {
+            lista.push({
+              id: doc.id,
+              tarefa: doc.data().tarefa,
+              userUid: doc.data().userUid
+            })
+          })
+
+          console.log(lista)
+          setTarefas(lista);
+        })
+      }
+    }
+
+    loadTarefas();
+  }, [])
+
+  async function handleRegister(e){
+    e.preventDefault();
+
+    if(tarefaInput === ''){
+      alert('Digite seu lembrete')
+      return;
+    }
+
+    await addDoc(collection(db, 'tarefas'), {
+      tarefa: tarefaInput, 
+      created: new Date(),
+      userUid: user?.uid
+    })
+    .then(() => {
+      console.log("tarefa registrada com sucesso")
+      setTarefaInput('')
+    })
+    .catch((error) => {
+      console.log("erro ao registrar um lembrete")
+    })
+  }
+
+  async function handleLogout(){
+    await signOut(auth);
+  }
+
+  return (
+    <div className='admin-container'>
+      <h1>Meus Lembretes</h1>
+
+      <form onSubmit={handleRegister}>
+        <textarea placeholder='Digite seu lembrete...' value={tarefaInput} onChange={(e) => setTarefaInput(e.target.value)}>
+
+        </textarea>
+
+        <button className='btn-register' type='submit'>Registrar Lembrete</button>
+      </form>
+
+      <article>
+        <p>Teste de lembrete</p>
+
+        <div>
+          <button>Editar</button>
+          <button className='btn-delete'><img src={lixo}></img></button>
+        </div>
+      </article>
+
+      <button className='btn-logout' onClick={handleLogout}>Sair</button>
+    </div>
+  )
+}

@@ -1,3 +1,4 @@
+
 h1{
   text-align: center;
   margin-top: 5%;
@@ -98,8 +99,29 @@ border-radius: 50px;
   margin-top: 5%;
 }
 
+
+
 @media (max-width: 600px)
 {
+
+  h1 {
+    font-size: 35px;
+    margin-top: 25%;
+  }
+
+  .home-container{
+    background: rgb(18,36,91);
+    background: linear-gradient(90deg, rgba(18,36,91,1) 0%, rgba(3,32,117,1) 35%, rgba(0,26,255,1) 98%);
+    width: 380px;
+    height: 380px;
+    border-radius: 1px;
+    margin-top: -20%;
+  }
+  /* body{
+    
+      background: rgb(18,36,91);
+  background: linear-gradient(90deg, rgba(18,36,91,1) 0%, rgba(3,32,117,1) 35%, rgba(0,26,255,1) 98%);
+  } */
   .teste{
     display: none;
   }

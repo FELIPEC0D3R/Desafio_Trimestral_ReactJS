@@ -5,16 +5,53 @@
   margin-top: 48px;
 }
 
+.off{
+  width: 30px;
+  height: 30px;
+  margin-top: 7%;
+  margin-left: 5%;
+}
+
+.pOff{
+  margin-left: 5%;
+  margin-top: 9%;
+  font-size: 20px;
+}
+
 .admin-container h1{
   margin-bottom: 28px;
 }
 
 .btn-register{
   margin-bottom: 28px;
+  /* bottom: 6%;
+  margin-left: 58%;
+  height: 60px;
+  width: 200px;
+  border-radius: 5px;
+  border:0;
+  font-weight: bold;
+  background-color: rgba(68, 65, 255, 0.938);
+  color: #fafafa;
+  transition: all 0.5s;
+  margin-top: 5%; */
 }
 
 .form{
   margin-top: 3%;
+}
+
+.form textarea{
+  border: 2px solid black;
+  box-shadow: 3px 3px 10px 10px;
+  font-size: 20px;
+}
+
+.Alinha{
+  width: 100%;
+  /* border: 5px solid red; */
+  display: flex;
+  flex-direction: row;
 }
 
 .list{
@@ -25,8 +62,9 @@
   background-color: rgba(18,18,18, 0.38);
   border-radius: 4px;
   margin-bottom: 12px;
-  justify-content: center;
+  /* justify-content: center; */
   padding: 14px 8px;
+  font-size: 20px;
 }
 
 .list p{
@@ -34,38 +72,50 @@
 }
 
 .list button{
-  margin-right: 8px;
-  border:0;
-  border-radius: 4px;
-  padding: 4px;
+  margin-right: 10px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+  margin-top: 5%;
 }
 
 .btn-delete{
   color: #ffcc23;
   background-color: transparent;
+  float: right;
+}
+
+.btn-edit img{
+  width: 45px;
+  height: 45px;
+
+}
+
+.btn-delete img{
+  width: 40px;
+  height: 40px;
+
 }
 
 .btn-logout{
   /* position: absolute; */
   bottom: 6%;
-  margin-left: -80%;
+  margin-left: 10%;
   height: 60px;
   width: 200px;
   border-radius: 5px;
   border:0;
   font-weight: bold;
-  background-color: rgba(255, 0, 4, 0.938);
+  background-color: rgba(250, 1, 5, 0.938);
   color: #fafafa;
   transition: all 0.5s;
+  display: flex;
+  flex-direction: row;
 }
 
 .btn-logout:hover{
   background-color: rgba(219, 38, 41, 1);
   color: #FFF;
-}
-
-.text{
-  border: 5px solid rgb(2, 2, 61);
 }
 
 
@@ -87,10 +137,10 @@
 {
   .btn-logout
    {
-    margin-left: 2%;
+    margin-left: 25%;
    }
 
    .form{
-    margin-top: 10%;
+    margin-top: 25%;
   }
 }

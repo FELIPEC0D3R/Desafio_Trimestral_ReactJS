@@ -1,10 +1,6 @@
 import { useState, useEffect } from 'react'
 import './admin.css'
 
-import lixo from '../images/lixo.png'
-import editImg from '../images/edit.png'
-import off from '../images/off.png'
-
 import { auth, db } from '../../firebaseConnection'
 import { signOut } from 'firebase/auth'
 
@@ -130,10 +126,8 @@ export default function Admin(){
       <div className='Alinha'>
 
       <button className="btn-logout" onClick={handleLogout}>
-
-        <img className='off' src={off}></img>
         
-        <p className='pOff'>Sair da conta</p>
+        Sair da conta
         
         </button>
 
@@ -162,11 +156,11 @@ export default function Admin(){
 
       {tarefas.map((item) => (
       <article key={item.id} className="list">
-        <p>Lembrete: {item.tarefa}</p>
+        <p>{item.tarefa}</p>
 
         <div>
-          <button onClick={ () => editTarefa(item) } className="btn-edit"><img src={editImg}></img></button>
-          <button onClick={ () => deleteTarefa(item.id) } className="btn-delete"><img src={lixo}></img></button>
+          <button onClick={ () => editTarefa(item) }>Editar</button>
+          <button onClick={ () => deleteTarefa(item.id) } className="btn-delete">Concluir</button>
         </div>
       </article>
       ))}
